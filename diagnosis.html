@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>空间文化轻升级诊断 | 几里造物</title>
+  <meta name="description" content="几里造物空间文化轻升级诊断，输入项目信息，快速生成空间判断、文化母题与轻升级方向。">
+  <meta name="theme-color" content="#080808">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="空间文化轻升级诊断 | 几里造物">
+  <meta property="og:description" content="几里造物空间文化轻升级诊断，输入项目信息，快速生成空间判断、文化母题与轻升级方向。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="./og-image.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="空间文化轻升级诊断 | 几里造物">
+  <meta name="twitter:description" content="几里造物空间文化轻升级诊断，输入项目信息，快速生成空间判断、文化母题与轻升级方向。">
+  <meta name="twitter:image" content="./og-image.svg">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./diagnosis.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="返回几里造物首页">
+      <span class="brand-cn">几里造物</span>
+      <span class="brand-en">JILI CREATION</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="诊断页导航">
+      <a href="./index.html">Home</a>
+      <a href="#diagnosis-form">Diagnosis</a>
+      <a href="#diagnosis-result">Result</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="打开导航" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" style="min-height:50svh;">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <h1 class="hero-chars" style="display:flex;flex-wrap:wrap;">
+        <span class="hero-char reveal reveal-delay-1" style="font-size:clamp(36px,8vw,96px);">空间文化</span>
+        <span class="hero-char reveal reveal-delay-2" style="font-size:clamp(36px,8vw,96px);">轻升级诊断</span>
+      </h1>
+      <p class="hero-tagline reveal reveal-delay-4" style="max-width:480px;">输入一个空间的基本信息，快速生成文化判断、母题方向与轻升级建议。</p>
+      <div class="hero-meta reveal reveal-delay-4">Hunan / Changsha</div>
+    </section>
+
+    <div class="section-header" id="diagnosis-form">
+      <span class="section-label">Input</span>
+      <span class="section-label">填写项目基础信息</span>
+    </div>
+
+    <section class="diagnosis-section">
+      <form class="diagnosis-form" id="spatial-diagnosis-form">
+        <label class="field">
+          <span class="field-label">联系人</span>
+          <input class="field-input" type="text" name="contactName" placeholder="例如：张女士" maxlength="30" required>
+        </label>
+        <label class="field">
+          <span class="field-label">联系电话</span>
+          <input class="field-input" type="tel" name="contactPhone" placeholder="例如：15000000000" pattern="^(\+?\d{1,3}[-\s]?)?\d{7,20}$" maxlength="20" required>
+        </label>
+        <label class="field">
+          <span class="field-label">城市</span>
+          <input class="field-input" type="text" name="city" placeholder="例如：长沙" maxlength="20" required>
+        </label>
+        <label class="field">
+          <span class="field-label">场地类型</span>
+          <select class="field-input" name="spaceType" required>
+            <option value="">请选择</option>
+            <option value="文旅街区">文旅街区</option>
+            <option value="民宿">民宿</option>
+            <option value="咖啡馆">咖啡馆</option>
+            <option value="餐饮空间">餐饮空间</option>
+            <option value="展陈空间">展陈空间</option>
+            <option value="文创零售">文创零售</option>
+            <option value="综合商业空间">综合商业空间</option>
+            <option value="其他">其他</option>
+          </select>
+        </label>
+        <label class="field field-wide">
+          <span class="field-label">当前问题</span>
+          <textarea class="field-input field-textarea" name="problem" placeholder="例如：空间缺少记忆点、拍照传播弱、文化表达不清晰" maxlength="300" required></textarea>
+        </label>
+        <label class="field">
+          <span class="field-label">目标客群</span>
+          <input class="field-input" type="text" name="audience" placeholder="例如：年轻游客、亲子家庭、城市白领" maxlength="100" required>
+        </label>
+        <label class="field">
+          <span class="field-label">想要的空间气质</span>
+          <input class="field-input" type="text" name="mood" placeholder="例如：克制、在地、温暖、实验感" maxlength="60" required>
+        </label>
+        <label class="field">
+          <span class="field-label">你最想提升什么</span>
+          <select class="field-input" name="goal" required>
+            <option value="">请选择</option>
+            <option value="传播感">传播感</option>
+            <option value="体验感">体验感</option>
+            <option value="转化感">转化感</option>
+          </select>
+        </label>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" id="generate-button">生成诊断</button>
+          <a class="btn" href="./index.html">返回官网</a>
+        </div>
+      </form>
+    </section>
+
+    <div class="section-header" id="diagnosis-result">
+      <span class="section-label">Output</span>
+      <span class="section-label">诊断结果</span>
+    </div>
+
+    <section class="diagnosis-section" style="padding-bottom:120px;">
+      <div class="result-placeholder" id="result-placeholder">
+        <p>填写信息后，系统会在这里生成一份结构化诊断。</p>
+      </div>
+      <div class="result-loading" id="result-loading" hidden aria-live="polite">
+        <div class="skeleton-stack">
+          <div class="skeleton-line" style="width:60%"></div>
+          <div class="skeleton-line" style="width:85%"></div>
+          <div class="skeleton-line" style="width:70%"></div>
+          <div class="skeleton-line" style="width:50%"></div>
+        </div>
+        <p>正在生成诊断，请稍候…</p>
+      </div>
+      <div class="result-error" id="result-error" hidden>
+        <p id="result-error-text">生成失败，请稍后再试。</p>
+      </div>
+      <div class="result-content" id="result-content" hidden>
+        <article class="result-block">
+          <span class="result-label">联系信息</span>
+          <p class="result-text" id="result-contact"></p>
+        </article>
+        <article class="result-block">
+          <span class="result-label">空间判断</span>
+          <p class="result-text" id="result-judgement"></p>
+        </article>
+        <article class="result-block">
+          <span class="result-label">文化母题</span>
+          <p class="result-text" id="result-theme"></p>
+        </article>
+        <article class="result-block">
+          <span class="result-label">轻升级方向</span>
+          <ul class="result-list" id="result-directions"></ul>
+        </article>
+        <article class="result-block">
+          <span class="result-label">传播关键词</span>
+          <div class="keyword-list" id="result-keywords"></div>
+        </article>
+        <article class="result-block">
+          <span class="result-label">提案摘要</span>
+          <p class="result-text" id="result-summary"></p>
+        </article>
+        <div class="result-actions">
+          <button class="btn btn-primary" type="button" id="copy-result">复制诊断</button>
+          <button class="btn" type="button" id="regenerate-button">重新生成</button>
+          <a class="btn" href="tel:15084803634">预约深化方案</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>几里造物文化科技有限公司</span>
+    <a href="./index.html" style="color:inherit;">返回官网</a>
+  </footer>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="./script.js"></script>
+  <script src="./diagnosis.js"></script>
+</body>
+</html>

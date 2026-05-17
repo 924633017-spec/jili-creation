@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#080808"/>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.03)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- Geometric accent line -->
+  <line x1="80" y1="0" x2="80" y2="630" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="0" y1="80" x2="1200" y2="80" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  <!-- Brand name -->
+  <text x="80" y="240" font-family="'PingFang SC','Noto Sans SC','Heiti SC',sans-serif" font-size="88" font-weight="700" fill="#ededed" letter-spacing="0.02em">几里造物</text>
+  <!-- English -->
+  <text x="80" y="292" font-family="'Outfit',sans-serif" font-size="15" font-weight="500" fill="#c23a2e" letter-spacing="0.36em">JILI CREATION</text>
+  <!-- Tagline -->
+  <text x="80" y="356" font-family="'PingFang SC','Noto Sans SC','Heiti SC',sans-serif" font-size="28" font-weight="400" fill="rgba(237,237,237,0.4)">让文化成为空间资产</text>
+  <!-- Bottom line -->
+  <line x1="80" y1="410" x2="340" y2="410" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <!-- Red dot -->
+  <circle cx="1100" cy="300" r="4" fill="#c23a2e" opacity="0.6"/>
+</svg>
